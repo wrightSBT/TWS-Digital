@@ -6,6 +6,7 @@
     <title>TWS Digital | WhatsApp Funnels</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxx21dfez5XjgRZc3xC2MQ0xp15Klc3F+2/Fi7cPc9NKGJ+YF6B+0zY1xUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body { font-family: 'Sora', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -82,10 +83,10 @@
         <div class="grid md:grid-cols-2 gap-10 items-center">
             <h2 class="text-4xl font-bold">What you actually get is <span class="text-green-500 underline">Results</span>.</h2>
             <div class="grid grid-cols-1 gap-4">
-                <div class="flex items-center gap-3 text-gray-300">✅ More WhatsApp inquiries</div>
-                <div class="flex items-center gap-3 text-gray-300">✅ Fewer "price?" messages</div>
-                <div class="flex items-center gap-3 text-gray-300">✅ Faster bookings or orders</div>
-                <div class="flex items-center gap-3 text-gray-300">✅ One clean link for all your bios</div>
+                <div class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-circle-check"></i> More WhatsApp inquiries</div>
+                <div class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-circle-check"></i> Fewer "price?" messages</div>
+                <div class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-circle-check"></i> Faster bookings or orders</div>
+                <div class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-circle-check"></i> One clean link for all your bios</div>
             </div>
         </div>
     </section>
@@ -94,17 +95,17 @@
         <h2 class="text-3xl font-bold text-center mb-12">The "Hi, Price?" Headache Ends Here</h2>
         <div class="grid md:grid-cols-3 gap-6">
             <div class="glass p-8 rounded-3xl">
-                <div class="text-3xl mb-4">👻</div>
+                <div class="text-3xl mb-4"><i class="fa-solid fa-ghost"></i></div>
                 <h3 class="text-xl font-bold mb-2">The Ghosting</h3>
                 <p class="text-gray-400">People ask for prices on Facebook and disappear because your info isn't structured.</p>
             </div>
             <div class="glass p-8 rounded-3xl border-green-500/30">
-                <div class="text-3xl mb-4">⏳</div>
+                <div class="text-3xl mb-4"><i class="fa-solid fa-hourglass-half"></i></div>
                 <h3 class="text-xl font-bold mb-2">The Time Trap</h3>
                 <p class="text-gray-400">You repeat the same service details 50 times a day. It’s exhausting and scales poorly.</p>
             </div>
             <div class="glass p-8 rounded-3xl">
-                <div class="text-3xl mb-4">📉</div>
+                <div class="text-3xl mb-4"><i class="fa-solid fa-arrow-trend-down"></i></div>
                 <h3 class="text-xl font-bold mb-2">The Messy Look</h3>
                 <p class="text-gray-400">Customers scroll forever to find what you do. If they can't find it, they won't buy it.</p>
             </div>
@@ -174,17 +175,23 @@
         <h2 class="text-3xl font-bold text-center mb-12">Success Stories</h2>
         <div class="grid md:grid-cols-3 gap-8 text-center">
             <div class="glass p-6 rounded-2xl">
-                <div class="bg-gray-800 h-48 rounded-xl mb-4 flex items-center justify-center text-gray-500 italic">[Salon Example]</div>
+                <div class="bg-gray-800 h-48 rounded-xl mb-4 relative overflow-hidden">
+                    <img src="hair_studio.jpg" alt="The Glow Studio" class="w-full h-full object-cover object-center block">
+                </div>
                 <p class="font-bold">Made booking easier</p>
                 <p class="text-xs text-green-500">Increased WhatsApp clicks by 40%</p>
             </div>
             <div class="glass p-6 rounded-2xl">
-                <div class="bg-gray-800 h-48 rounded-xl mb-4 flex items-center justify-center text-gray-500 italic"><img src="DiscoverGabs.png"></div>
+                <div class="bg-gray-800 h-48 rounded-xl mb-4 relative overflow-hidden">
+                    <img src="Kgosi_Kitchen.jpg" alt="Kgosi Kitchen" class="w-full h-full object-cover object-center block">
+                </div>
                 <p class="font-bold">Reduced scrolling</p>
                 <p class="text-xs text-green-500">Zero "Price?" comments this week</p>
             </div>
             <div class="glass p-6 rounded-2xl">
-                <div class="bg-gray-800 h-48 rounded-xl mb-4 flex items-center justify-center text-gray-500 italic"><img src="bwc-website.png" alt="Bontlebotsile Wellness Consult site"></div>
+                <div class="bg-gray-800 h-48 rounded-xl mb-4 relative overflow-hidden">
+                    <img src="bwc-website.jpg" alt="Bontlebotsile Wellness Consult site" class="w-full h-full object-cover object-center block">
+                </div>
                 <p class="font-bold">More serious messages</p>
                 <p class="text-xs text-green-500">Qualified leads only</p>
             </div>
