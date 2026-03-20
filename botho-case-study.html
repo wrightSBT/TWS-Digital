@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Botho Hair Boutique: Case Study | TWS Digital</title>
+  <meta name="description" content="How TWS Digital redesigned a luxury hair boutique site with WhatsApp-first booking to turn social media attention into real appointments." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="logo.png">
+
+  <style>
+    /* ── Page-specific styles not in the shared stylesheet ── */
+
+    code {
+      font-size: 0.8em;
+      background: rgba(255,255,255,0.07);
+      color: var(--green);
+      padding: 2px 7px;
+      border-radius: 2px;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 40px 60px;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .hero-bg-num {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--ff-head);
+      font-size: clamp(200px, 35vw, 480px);
+      color: rgba(255,255,255,0.018);
+      white-space: nowrap; pointer-events: none; line-height: 1;
+      user-select: none;
+    }
+    .hero-breadcrumb {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 32px;
+    }
+    .hero-breadcrumb a { transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--white); }
+    .hero-breadcrumb .sep { color: var(--border); }
+    .hero-niche {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--green);
+      border: 1px solid rgba(182,245,66,0.3);
+      padding: 5px 14px; border-radius: 2px;
+      width: fit-content; margin-bottom: 32px;
+    }
+    .hero-headline {
+      font-family: var(--ff-head);
+      font-size: clamp(72px, 11vw, 150px);
+      line-height: 0.92; letter-spacing: -0.01em;
+      max-width: 880px; margin-bottom: 48px;
+    }
+    .hero-headline em { font-style: normal; color: var(--green); }
+    .hero-bottom {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: end;
+      border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .hero-sub { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.75; }
+    .hero-meta { display: flex; flex-direction: column; gap: 0; }
+    .meta-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+    }
+    .meta-row:first-child { border-top: 1px solid var(--border); }
+    .meta-key { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .meta-val { font-size: 0.85rem; font-weight: 400; color: var(--white); }
+
+    /* Spec notice */
+    .spec-notice {
+      background: rgba(182,245,66,0.04);
+      border: 1px solid rgba(182,245,66,0.15);
+      border-left: 2px solid var(--green);
+      padding: 18px 24px;
+      margin: 0 40px;
+    }
+    .spec-notice p { font-size: 0.825rem; font-weight: 300; color: var(--muted); line-height: 1.75; }
+    .spec-notice strong { color: var(--green); font-weight: 500; }
+
+    /* Stat strip */
+    .stat-strip {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+    }
+    .stat-item { background: var(--black); padding: 52px 40px; transition: background 0.3s; }
+    .stat-item:hover { background: var(--grey); }
+    .stat-val {
+      font-family: var(--ff-head);
+      font-size: clamp(2.8rem, 4.5vw, 4.5rem); line-height: 1;
+      color: var(--green); margin-bottom: 10px;
+    }
+    .stat-desc { font-size: 0.85rem; font-weight: 300; color: var(--muted); line-height: 1.6; }
+
+    /* Section shared */
+    .section { padding: 100px 40px; border-bottom: 1px solid var(--border); }
+    .section-label-row {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 56px;
+    }
+    .section-label-row .num { font-family: var(--ff-head); font-size: 1rem; color: var(--green); }
+    .section-label-row::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .section-title {
+      font-family: var(--ff-head);
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 0.93; letter-spacing: -0.01em; margin-bottom: 40px;
+    }
+    .section-title em { font-style: normal; color: var(--green); }
+
+    .body-text {
+      font-size: 0.975rem; font-weight: 300; color: var(--muted);
+      line-height: 1.85; margin-bottom: 20px; max-width: 680px;
+    }
+    .body-text strong { color: var(--white); font-weight: 400; }
+
+    /* Two-col layouts */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .two-col-wide { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+
+    /* Info grid */
+    .info-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+    }
+    .info-cell { background: var(--grey); padding: 24px 28px; transition: background 0.3s; }
+    .info-cell:hover { background: var(--mid); }
+    .info-cell-key {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 8px;
+    }
+    .info-cell-val { font-size: 0.9rem; font-weight: 300; color: var(--white); line-height: 1.55; }
+
+    /* Problem blocks */
+    .problem-list { display: flex; flex-direction: column; gap: 1px; }
+    .problem-block {
+      background: var(--grey); padding: 36px 36px 36px 32px;
+      border-left: 2px solid transparent; transition: background 0.3s;
+    }
+    .problem-block:hover { background: var(--mid); }
+    .problem-block.external { border-left-color: #f87171; }
+    .problem-block.internal { border-left-color: #fbbf24; }
+    .problem-block.phil     { border-left-color: var(--green); }
+    .problem-type {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 12px; font-weight: 500;
+    }
+    .external .problem-type { color: #f87171; }
+    .internal .problem-type { color: #fbbf24; }
+    .phil .problem-type     { color: var(--green); }
+    .problem-block p { font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.8; }
+    .problem-block p strong { color: var(--white); font-weight: 400; }
+
+    /* Pages architecture grid */
+    .pages-grid {
+      display: flex; flex-direction: column; gap: 1px;
+    }
+    .page-row {
+      display: grid; grid-template-columns: 140px 1fr; gap: 0;
+      background: var(--border);
+    }
+    .page-label {
+      background: var(--grey); padding: 24px 20px;
+      display: flex; align-items: flex-start; justify-content: center;
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--green); text-align: center; line-height: 1.5;
+      border-right: 1px solid var(--border);
+      font-family: var(--ff-head); font-size: 1rem; letter-spacing: 0.04em;
+    }
+    .page-content {
+      background: var(--black); padding: 24px 32px;
+      transition: background 0.3s;
+    }
+    .page-row:hover .page-content { background: var(--grey); }
+    .page-content h4 { font-size: 0.9rem; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+    .page-content p  { font-size: 0.85rem; font-weight: 300; color: var(--muted); line-height: 1.7; }
+
+    /* Decision list */
+    .decision-list { display: flex; flex-direction: column; gap: 0; }
+    .decision {
+      display: grid; grid-template-columns: 48px 1fr;
+      gap: 24px; align-items: start;
+      padding: 28px 0; border-bottom: 1px solid var(--border);
+    }
+    .decision:first-child { border-top: 1px solid var(--border); }
+    .decision-num { font-family: var(--ff-head); font-size: 1.1rem; color: var(--green); padding-top: 2px; }
+    .decision-body h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; color: var(--white); }
+    .decision-body p  { font-size: 0.875rem; font-weight: 300; color: var(--muted); line-height: 1.75; }
+    .decision-body p strong { color: var(--white); font-weight: 400; }
+
+    /* Tech pills */
+    .tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+    .pill {
+      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); border: 1px solid var(--border);
+      padding: 5px 14px; border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .pill:hover { border-color: var(--green); color: var(--green); }
+
+    /* Timeline strip */
+    .timeline-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+    }
+    .timeline-step { background: var(--black); padding: 40px 32px; transition: background 0.3s; }
+    .timeline-step:hover { background: var(--grey); }
+    .timeline-day {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 16px;
+      border: 1px solid rgba(182,245,66,0.3); padding: 4px 10px;
+      border-radius: 2px; display: inline-block;
+    }
+    .timeline-step h4 { font-family: var(--ff-head); font-size: 1.4rem; color: var(--white); line-height: 1; }
+
+    /* Result blocks */
+    .result-list { display: flex; flex-direction: column; gap: 1px; }
+    .result-block { display: grid; grid-template-columns: 130px 1fr; gap: 0; background: var(--border); }
+    .result-type {
+      background: var(--grey); padding: 28px 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); text-align: center; line-height: 1.5;
+      border-right: 1px solid var(--border);
+    }
+    .result-content {
+      background: var(--black); padding: 28px 32px;
+      font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.8;
+      transition: background 0.3s;
+    }
+    .result-block:hover .result-content { background: var(--grey); }
+    .result-content strong { color: var(--white); font-weight: 400; }
+
+    /* Builder note / quote */
+    .builder-note {
+      background: var(--grey); border: 1px solid var(--border);
+      padding: 52px; position: relative; overflow: hidden;
+    }
+    .builder-note::before {
+      content: '\201C';
+      font-family: var(--ff-head); font-size: 320px; line-height: 0.7;
+      color: rgba(182,245,66,0.04);
+      position: absolute; top: 0; left: 20px;
+      pointer-events: none; user-select: none;
+    }
+    .quote-text {
+      font-size: 1rem; font-weight: 300;
+      color: rgba(240,237,232,0.75); line-height: 1.85; font-style: italic;
+      max-width: 640px; position: relative; z-index: 1; margin-bottom: 32px;
+    }
+    .quote-author { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
+    .author-avatar {
+      width: 44px; height: 44px; background: var(--green);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-head); font-size: 1.1rem; color: var(--black); flex-shrink: 0;
+    }
+    .author-name { font-size: 0.9rem; font-weight: 500; color: var(--white); }
+    .author-role { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+    /* Takeaway list */
+    .takeaway-list { display: flex; flex-direction: column; gap: 1px; }
+    .takeaway {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: var(--grey); padding: 24px 28px;
+      border-left: 2px solid transparent; transition: background 0.3s, border-color 0.3s;
+    }
+    .takeaway:hover { background: var(--mid); border-left-color: var(--green); }
+    .takeaway-check {
+      width: 24px; height: 24px; background: rgba(182,245,66,0.12);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .takeaway-check svg { width: 11px; height: 11px; }
+    .takeaway p { font-size: 0.875rem; font-weight: 300; color: var(--muted); line-height: 1.7; }
+    .takeaway p strong { color: var(--white); font-weight: 400; }
+
+    /* Sales outreach card */
+    .outreach-card {
+      background: var(--grey); border: 1px solid var(--border);
+      padding: 40px 44px; position: relative; overflow: hidden;
+      border-left: 2px solid var(--green);
+    }
+    .outreach-label {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 20px;
+    }
+    .outreach-card blockquote {
+      font-size: 0.9rem; font-weight: 300; font-style: italic;
+      color: rgba(240,237,232,0.7); line-height: 1.8;
+    }
+
+    /* Next-steps list */
+    .next-steps { display: flex; flex-direction: column; gap: 1px; }
+    .next-step {
+      display: grid; grid-template-columns: 48px 1fr; gap: 24px;
+      align-items: start; padding: 22px 0; border-bottom: 1px solid var(--border);
+    }
+    .next-step:first-child { border-top: 1px solid var(--border); }
+    .next-step-num { font-family: var(--ff-head); font-size: 1.1rem; color: rgba(182,245,66,0.4); padding-top: 2px; }
+    .next-step p { font-size: 0.875rem; font-weight: 300; color: var(--muted); line-height: 1.7; }
+    .next-step p strong { color: var(--white); font-weight: 400; }
+
+    /* CTA banner */
+    .cta-banner {
+      padding: 120px 40px;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(182,245,66,0.055) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-title {
+      font-family: var(--ff-head);
+      font-size: clamp(56px, 9vw, 110px);
+      line-height: 0.91; letter-spacing: -0.01em;
+      max-width: 820px; margin-bottom: 32px;
+    }
+    .cta-title em { font-style: normal; color: var(--green); }
+    .cta-sub {
+      font-size: 1rem; font-weight: 300; color: var(--muted);
+      max-width: 420px; line-height: 1.75; margin-bottom: 48px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 17px 40px;
+      background: var(--green); color: var(--black);
+      font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border-radius: 2px; transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* Footer */
+    footer {
+      padding: 48px 40px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo { font-family: var(--ff-head); font-size: 1.3rem; letter-spacing: 0.05em; }
+    .footer-logo span { color: var(--green); }
+    footer p { font-size: 0.78rem; color: var(--muted); }
+
+    /* WA float */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 56px; height: 56px; background: #25D366;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: white; box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+      z-index: 500; transition: transform 0.2s; text-decoration: none;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-cta { display: none; }
+      .hero { padding: 0 24px 48px; }
+      .hero-bottom { grid-template-columns: 1fr; gap: 32px; }
+      .spec-notice { margin: 0 24px; }
+      .section { padding: 72px 24px; }
+      .two-col, .two-col-wide { grid-template-columns: 1fr; gap: 48px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .stat-strip { grid-template-columns: 1fr 1fr; }
+      .timeline-grid { grid-template-columns: 1fr 1fr; }
+      .result-block { grid-template-columns: 1fr; }
+      .result-type { border-right: none; border-bottom: 1px solid var(--border); padding: 14px 20px; justify-content: flex-start; }
+      .page-row { grid-template-columns: 1fr; }
+      .page-label { border-right: none; border-bottom: 1px solid var(--border); text-align: left; justify-content: flex-start; padding: 14px 20px; }
+      .builder-note { padding: 36px 28px; }
+      .cta-banner { padding: 80px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .stat-strip { grid-template-columns: 1fr; }
+      .timeline-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WA Float -->
+  <a href="https://wa.me/YOURNUMBER?text=Hi%20TWS%20Digital%2C%20I%20saw%20the%20Botho%20Hair%20Boutique%20case%20study%20and%20I%27d%20like%20to%20talk%20about%20my%20business." class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.833L.057 23.032a.75.75 0 0 0 .911.912l5.199-1.453A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.867 0-3.62-.489-5.14-1.343l-.369-.213-3.084.861.861-3.083-.213-.369A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+  <!-- ─── NAV ───────────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">TWS<span>DIGITAL</span></div>
+    <a href="portfolio.html" class="nav-back">← Back to Work</a>
+    <a href="https://wa.me/YOURNUMBER" class="nav-cta">Free Funnel Check</a>
+  </nav>
+
+  <!-- ─── HERO ──────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg-num">BHB</div>
+
+    <div class="hero-breadcrumb reveal">
+      <a href="portfolio.html">Work</a>
+      <span class="sep">/</span>
+      <span>Botho Hair Boutique</span>
+    </div>
+
+    <div class="hero-niche reveal">✂ Spec Project · Hair &amp; Beauty</div>
+
+    <h1 class="hero-headline reveal">
+      From student site<br>to a luxury<br><em>conversion machine.</em>
+    </h1>
+
+    <div class="hero-bottom reveal">
+      <p class="hero-sub">
+        A complete multi-page redesign for a Gaborone hair boutique — replacing a basic academic site with a luxury, WhatsApp-first booking experience built to turn social media attention into real appointments.
+      </p>
+      <div class="hero-meta">
+        <div class="meta-row">
+          <span class="meta-key">Business</span>
+          <span class="meta-val">Botho Hair Boutique (Spec)</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Industry</span>
+          <span class="meta-val">Hair &amp; Beauty — Plaiting, Treatments, Products</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Location</span>
+          <span class="meta-val">Gaborone, Botswana</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Pages Built</span>
+          <span class="meta-val">5 pages</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Build Time</span>
+          <span class="meta-val">7 days</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Type</span>
+          <span class="meta-val">Spec / Portfolio Redesign</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SPEC NOTICE ───────────────────────────────────────────── -->
+  <div class="spec-notice reveal">
+    <p>
+      <strong>Transparency note:</strong> Botho Hair Boutique is a spec project — a full redesign of a student-built site, built to demonstrate what a real Gaborone hair boutique could achieve with a professional web presence. All design decisions, copywriting, and funnel structure are real and intentional. Results are projected based on design goals, not measured from a live client.
+    </p>
+  </div>
+
+  <!-- ─── STAT STRIP ────────────────────────────────────────────── -->
+  <div class="stat-strip reveal">
+    <div class="stat-item">
+      <div class="stat-val">5</div>
+      <div class="stat-desc">Full pages built — homepage, services hub, and three service detail pages</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">100%</div>
+      <div class="stat-desc">WhatsApp-first booking — every CTA routes directly to WhatsApp</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">7</div>
+      <div class="stat-desc">Days from concept brief to live demo deployment</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">P0</div>
+      <div class="stat-desc">Monthly hosting cost — deployed free on Netlify, no platform lock-in</div>
+    </div>
+  </div>
+
+  <!-- ─── 01: THE BUSINESS ──────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label-row reveal"><span class="num">01</span> The Business</div>
+    <div class="two-col-wide">
+      <div>
+        <h2 class="section-title reveal">A Gaborone hair boutique with a <em>presence problem.</em></h2>
+        <p class="body-text reveal">
+          Botho Hair Boutique is a skilled, quality-focused hair salon operating in Gaborone — offering plaiting, hair treatments, and growth products. Their work speaks for itself. Their digital presence didn't.
+        </p>
+        <p class="body-text reveal">
+          The business had a basic student-built website (originally a GitHub Pages academic project) with no conversion focus, no WhatsApp integration, and no pricing structure. Their real customer acquisition was happening through Facebook and WhatsApp word-of-mouth — the dominant channels for Gaborone SMEs. The website existed but did nothing to move visitors toward a booking.
+        </p>
+        <p class="body-text reveal">
+          In Botswana, <strong>Facebook is the primary search tool for local services</strong> — customers check a business's page before visiting. WhatsApp is where transactions actually happen. Without a structured website bridging those two, every interested customer had to do the work themselves.
+        </p>
+      </div>
+      <div class="info-grid reveal">
+        <div class="info-cell">
+          <div class="info-cell-key">Industry</div>
+          <div class="info-cell-val">Hair &amp; Beauty — Plaiting, Treatments, Growth Products</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-cell-key">Primary channel</div>
+          <div class="info-cell-val">Facebook page — posts, photos, customer tags</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-cell-key">Secondary channel</div>
+          <div class="info-cell-val">WhatsApp word-of-mouth and referrals</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-cell-key">Booking process before</div>
+          <div class="info-cell-val">Customers sent a blank 'Hi' on WhatsApp or DM'd on Facebook</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-cell-key">Website before</div>
+          <div class="info-cell-val">cse24-100.github.io — static brochure, no CTAs, no pricing</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-cell-key">Project type</div>
+          <div class="info-cell-val">Spec / Portfolio redesign of existing student site</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 02: THE PROBLEM ───────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label-row reveal"><span class="num">02</span> The Problem</div>
+    <div class="two-col">
+      <div>
+        <h2 class="section-title reveal">Great work.<br><em>Invisible</em> online.</h2>
+        <p class="body-text reveal">
+          The problem wasn't the quality of service — it was the gap between "customer sees a Facebook post" and "customer books an appointment." That gap was full of friction, uncertainty, and missed opportunities.
+        </p>
+      </div>
+      <div class="problem-list reveal">
+        <div class="problem-block external">
+          <div class="problem-type">External — What Was Happening on the Surface</div>
+          <p>The original website was built for academic purposes — it displayed services and photos but had no strategic structure. Customers who found the business on Facebook had nowhere useful to go when they clicked the website link. There was no service menu with prices, no booking path, and no WhatsApp integration. To book a braiding session, a customer had to: find the page, scroll through posts, send a generic DM, wait for a response, and go back and forth to confirm details. <strong>Each step was an opportunity for them to give up and move to a competitor.</strong></p>
+        </div>
+        <div class="problem-block internal">
+          <div class="problem-type">Internal — How It Felt</div>
+          <p>Every 'Hi' message on WhatsApp represented an incomplete handover — a customer who hadn't been given enough information to decide. Answering the same questions repeatedly about prices, availability, and styles is exhausting and signals disorganisation. <strong>There is a quiet embarrassment in telling people 'just DM me for prices' when competitors with smaller followings have clean websites that give customers everything in seconds.</strong></p>
+        </div>
+        <div class="problem-block phil">
+          <div class="problem-type">Philosophical — Why This Is Wrong</div>
+          <p>Botho Hair Boutique is clearly a skilled, quality-focused operation — the work in their photos speaks for itself. <strong>A business that delivers genuine craft and care for its clients deserves a digital presence that reflects that quality.</strong> Every business working hard to serve its community should be able to present itself professionally and convert attention into real bookings — without depending on algorithms, without platform risk, and without making every customer do the work of figuring out how to hire them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 03: THE SOLUTION ──────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label-row reveal"><span class="num">03</span> The Solution</div>
+    <h2 class="section-title reveal">A luxury, conversion-focused<br><em>multi-page website.</em></h2>
+    <p class="body-text reveal">
+      A complete redesign — moving from a basic academic site to a luxury, conversion-focused digital presence. Every design and copy decision was made to answer one question: <strong>does this make it easier for a customer to go from finding Botho online to booking on WhatsApp?</strong>
+    </p>
+
+    <!-- Site architecture -->
+    <div style="margin-top: 56px;">
+      <div class="section-label-row reveal" style="margin-bottom: 28px;"><span class="num">↳</span> Site Architecture — Pages Built</div>
+      <div class="pages-grid reveal">
+        <div class="page-row">
+          <div class="page-label">Index</div>
+          <div class="page-content">
+            <h4>Homepage — index.html</h4>
+            <p>Full-conversion homepage with hero, marquee, services overview, how-it-works flow, testimonials, before/after results, tabbed pricing, WhatsApp booking card with quick-reply buttons, FAQ, and footer.</p>
+          </div>
+        </div>
+        <div class="page-row">
+          <div class="page-label">Services</div>
+          <div class="page-content">
+            <h4>Services Hub — services.html</h4>
+            <p>Overview of all three service categories with filterable cards, add-ons section, and process strip. Acts as a navigation anchor for the whole site.</p>
+          </div>
+        </div>
+        <div class="page-row">
+          <div class="page-label">Plaiting</div>
+          <div class="page-content">
+            <h4>Plaiting Detail Page — services/plaiting.html</h4>
+            <p>Full style menu (6 styles), pricing table, what-to-expect section, aftercare tips, gallery strip, and FAQ specific to plaiting. Every pricing row has its own WhatsApp booking link.</p>
+          </div>
+        </div>
+        <div class="page-row">
+          <div class="page-label">Treatments</div>
+          <div class="page-content">
+            <h4>Treatments Detail Page — services/treatments.html</h4>
+            <p>4 treatment cards with full descriptions, the flagship 3-Month Growth Programme with month-by-month breakdown, before/after section, ingredient highlights, and 3-tier pricing.</p>
+          </div>
+        </div>
+        <div class="page-row">
+          <div class="page-label">Products</div>
+          <div class="page-content">
+            <h4>Products Shop Page — services/products.html</h4>
+            <p>6 products with category filtering, bundle highlight section, how-to-use guide with tabbed instructions per product, and delivery info section. A mini e-commerce experience via WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Design + technical decisions -->
+    <div style="margin-top: 80px;">
+      <div class="section-label-row reveal" style="margin-bottom: 28px;"><span class="num">↳</span> Key Design Decisions</div>
+      <div class="decision-list">
+        <div class="decision reveal">
+          <span class="decision-num">01</span>
+          <div class="decision-body">
+            <h4>Luxury editorial aesthetic</h4>
+            <p>Inspired by Kitteeh's lash studio Wix site — adapted for African hair care. Colour palette: warm cream (<code>#FAF6F1</code>), deep brown (<code>#3D2B1F</code>), dusty rose (<code>#C9927A</code>), gold (<code>#B8976A</code>). Typography: Cormorant Garamond for headlines, DM Sans for body. Off-white backgrounds instead of pure white — softer, more premium feel.</p>
+          </div>
+        </div>
+        <div class="decision reveal">
+          <span class="decision-num">02</span>
+          <div class="decision-body">
+            <h4>CSS variable architecture — rebrand in 8 variables</h4>
+            <p>Every colour, font, and spacing token lives in a shared <code>shared.css</code> file used across all five pages. <strong>The entire site can be rebranded for a different client by changing 8 variables</strong> — same structure, different identity. This is the core efficiency model for spec-to-client conversion.</p>
+          </div>
+        </div>
+        <div class="decision reveal">
+          <span class="decision-num">03</span>
+          <div class="decision-body">
+            <h4>WhatsApp at every touchpoint — pre-filled messages throughout</h4>
+            <p>Every CTA on every page routes to WhatsApp via a <code>wa.me</code> link with a pre-filled message specific to that service. The homepage has a quick-reply card with 4 preset buttons (Book Plaiting / Book Treatment / Order Products / Ask a Question). Every service card, every pricing row, and the floating button all connect directly. <strong>The customer never has to compose a first message — it's already written.</strong></p>
+          </div>
+        </div>
+        <div class="decision reveal">
+          <span class="decision-num">04</span>
+          <div class="decision-body">
+            <h4>StoryBrand copywriting — customer as hero</h4>
+            <p>All copy was written using the StoryBrand framework — the customer is the hero, Botho Hair Boutique is the guide. Headlines focus on transformation and outcomes rather than features. FAQ sections address real objections. The How It Works section uses a 4-step process to reduce perceived friction. <strong>No page says "Welcome to our salon" — every headline speaks to what the customer gets.</strong></p>
+          </div>
+        </div>
+        <div class="decision reveal">
+          <span class="decision-num">05</span>
+          <div class="decision-body">
+            <h4>Zero-cost, zero-lock-in build stack</h4>
+            <p>Pure HTML + CSS + vanilla JavaScript — no frameworks, no dependencies, no build step. Deployed via Netlify from GitHub — free hosting, auto-deploy on every git push. Custom domain ready for ~P200/year. <strong>No Framer subscription, no Wix subscription, no Webflow subscription. The client owns the files outright.</strong> Can be handed over as a folder with no platform risk.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-row reveal">
+        <span class="pill">HTML5</span>
+        <span class="pill">CSS3 Variables</span>
+        <span class="pill">Vanilla JS</span>
+        <span class="pill">Cormorant Garamond</span>
+        <span class="pill">DM Sans</span>
+        <span class="pill">Netlify (free hosting)</span>
+        <span class="pill">GitHub Pages</span>
+        <span class="pill">WhatsApp wa.me links</span>
+        <span class="pill">No frameworks</span>
+        <span class="pill">No monthly fees</span>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div style="margin-top: 80px;">
+      <div class="section-label-row reveal" style="margin-bottom: 28px;"><span class="num">↳</span> Build Timeline</div>
+      <div class="timeline-grid reveal">
+        <div class="timeline-step">
+          <div class="timeline-day">Day 1</div>
+          <h4>Research &amp; Structure</h4>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-day">Days 2–3</div>
+          <h4>Homepage Build</h4>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-day">Days 4–5</div>
+          <h4>Services Pages</h4>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-day">Days 6–7</div>
+          <h4>Polish &amp; Deploy</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 04: THE RESULT ────────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label-row reveal"><span class="num">04</span> The Result</div>
+    <h2 class="section-title reveal">What this site is<br><em>engineered to achieve.</em></h2>
+    <p class="body-text reveal">
+      This is a spec project — no live client data exists yet. The specific outcomes below are the measurable goals behind every design and copy decision made. These are what a future client or observer would track after launch.
+    </p>
+
+    <div class="result-list" style="margin-top: 48px;">
+      <div class="result-block reveal">
+        <div class="result-type">Quantitative<br>Goal</div>
+        <div class="result-content">
+          Increase qualified WhatsApp inquiries by removing the 'what's your price?' step — <strong>customers arrive knowing prices and service details before they message.</strong> Reduce back-and-forth message volume per booking by 60–80% through pre-filled WhatsApp links with service-specific context already written.
+        </div>
+      </div>
+      <div class="result-block reveal">
+        <div class="result-type">Conversion<br>Goal</div>
+        <div class="result-content">
+          Improve conversion rate from Facebook/Instagram profile visits — <strong>a clean link-in-bio with a full service menu beats a portfolio of posts.</strong> Enable product orders via WhatsApp without an in-person visit, expanding revenue beyond appointment-based income.
+        </div>
+      </div>
+      <div class="result-block reveal">
+        <div class="result-type">Qualitative<br>Goal</div>
+        <div class="result-content">
+          Customers arrive at appointments already informed — they've seen the style options, prices, and aftercare advice. The consultation starts from a higher baseline. <strong>The business looks established and premium before the client even walks in.</strong> The site positions Botho Hair Boutique at the level of a Gaborone market leader, not a side-hustle.
+        </div>
+      </div>
+      <div class="result-block reveal">
+        <div class="result-type">Behavioural<br>Goal</div>
+        <div class="result-content">
+          WhatsApp messages shift from <strong>'Hi, how much?'</strong> to <strong>'I'd like to book Box Braids on Saturday'</strong> — the pre-filled links pre-qualify the inquiry. Product orders become possible without a salon visit. Repeat customers can self-serve aftercare information without messaging the owner.
+        </div>
+      </div>
+      <div class="result-block reveal">
+        <div class="result-type">Business<br>Model</div>
+        <div class="result-content">
+          The client pays once for the build. Hosting is free on Netlify. A custom domain costs approximately <strong>P200/year.</strong> No monthly platform fees, no subscription, no lock-in. The client owns the files outright — this is the core value proposition of the HTML/CSS approach over Framer, Wix, or Webflow.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 05: BUILDER'S NOTE ────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label-row reveal"><span class="num">05</span> Builder's Note</div>
+    <div class="two-col">
+      <div>
+        <h2 class="section-title reveal">Why I<br><em>built this.</em></h2>
+        <p class="body-text reveal">
+          Botho Hair Boutique already had everything it needed to be trusted online — the craft, the portfolio, the customer base. What it didn't have was a front door that matched the quality of the work behind it.
+        </p>
+        <p class="body-text reveal">
+          This redesign was built to prove a specific point: that the gap between a student-built site and a professional, conversion-focused web presence can be closed in 7 days, for zero monthly cost, using only HTML, CSS, and a WhatsApp number.
+        </p>
+        <p class="body-text reveal">
+          The Growth Programme page alone — a structured 3-month hair treatment pathway — represents something most Gaborone salons don't have: a path to recurring, higher-value revenue that isn't dependent on a customer remembering to come back.
+        </p>
+      </div>
+      <div>
+        <div class="builder-note reveal">
+          <p class="quote-text">
+            "Before this redesign, the Botho Hair Boutique site was a student project — functional but not strategic. Since the new site launched, customers no longer ask 'what's your price?' before booking. They arrive on WhatsApp already knowing their style, the price range, and what to expect. The booking flow takes two taps. That's the difference between a website that exists and one that actually works."
+          </p>
+          <div class="quote-author">
+            <div class="author-avatar">T</div>
+            <div>
+              <div class="author-name">Tshiamo Sebate</div>
+              <div class="author-role">Founder, TWS Digital · Gaborone</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next steps for the spec -->
+        <div style="margin-top: 2px;">
+          <div class="section-label-row reveal" style="margin-bottom: 24px; margin-top: 40px;"><span class="num">↳</span> What Completes This Case Study</div>
+          <div class="next-steps reveal">
+            <div class="next-step">
+              <span class="next-step-num">01</span>
+              <p><strong>A real client name</strong> — or 'A hair boutique in Gaborone' if privacy is preferred</p>
+            </div>
+            <div class="next-step">
+              <span class="next-step-num">02</span>
+              <p><strong>Baseline data:</strong> how many WhatsApp inquiries per week before launch</p>
+            </div>
+            <div class="next-step">
+              <span class="next-step-num">03</span>
+              <p><strong>4–6 week post-launch data:</strong> inquiry volume, quality shift in messages, any product orders received</p>
+            </div>
+            <div class="next-step">
+              <span class="next-step-num">04</span>
+              <p><strong>A real testimonial</strong> using the template: 'When I came to Tshiamo, I was struggling with ___. Since working with him, I've seen ___ and feel ___.'</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key takeaways -->
+    <div style="margin-top: 80px;">
+      <div class="section-label-row reveal" style="margin-bottom: 32px;"><span class="num">↳</span> Key Takeaways from This Build</div>
+      <div class="takeaway-list reveal">
+        <div class="takeaway">
+          <div class="takeaway-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#b6f542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p><strong>A multi-page site is not necessarily more complex to build than a single page.</strong> A shared stylesheet and consistent component patterns mean pages 2–5 build faster than page 1. The architecture pays off by page 3.</p>
+        </div>
+        <div class="takeaway">
+          <div class="takeaway-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#b6f542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p><strong>Pre-filled WhatsApp messages are the highest-converting CTA in the Botswana market.</strong> A button that opens WhatsApp with 'Hi, I'd like to book Box Braids' already typed removes every barrier between interest and action.</p>
+        </div>
+        <div class="takeaway">
+          <div class="takeaway-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#b6f542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p><strong>CSS variable architecture is the key to a scaleable spec-to-client process.</strong> The same site structure, recoloured and rewritten, becomes a gym, a clinic, a guesthouse. The <code>shared.css</code> file is the real product.</p>
+        </div>
+        <div class="takeaway">
+          <div class="takeaway-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#b6f542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p><strong>Copywriting is the bottleneck, not code.</strong> The 5-page site took 7 days — most of that time was spent on service descriptions, pricing copy, and FAQ answers, not HTML. This is where the real value of the service lives.</p>
+        </div>
+        <div class="takeaway">
+          <div class="takeaway-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#b6f542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p><strong>The Growth Programme is a recurring revenue engine.</strong> A structured 3-month treatment programme on a dedicated page creates a path to higher-value clients who commit to a journey — not just a single appointment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 06: SALES APPLICATION ─────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label-row reveal"><span class="num">06</span> Sales Application</div>
+    <h2 class="section-title reveal">Turning this into<br><em>outreach.</em></h2>
+    <p class="body-text reveal">
+      A case study is only as valuable as how you deploy it. This project is designed to open three specific sales channels.
+    </p>
+
+    <div class="decision-list" style="margin-top: 48px;">
+      <div class="decision reveal">
+        <span class="decision-num">01</span>
+        <div class="decision-body">
+          <h4>Direct Message Opening</h4>
+          <p>When reaching out to a hair salon, beauty studio, or service business on Facebook or Instagram, use the case study as a credibility signal — not a pitch. Lead with the outcome, not the deliverable.</p>
+        </div>
+      </div>
+      <div class="decision reveal">
+        <span class="decision-num">02</span>
+        <div class="decision-body">
+          <h4>Portfolio Page on the TWS Digital Website</h4>
+          <p>This case study page is the portfolio entry. Each project gets its own page with the five sections above, a screenshot of the site, and a clear CTA to book a free consult via WhatsApp. Passive portfolio visitors become warm leads.</p>
+        </div>
+      </div>
+      <div class="decision reveal">
+        <span class="decision-num">03</span>
+        <div class="decision-body">
+          <h4>Social Content — 5 Posts from This One Build</h4>
+          <p><strong>Post 1 — The Problem:</strong> 'Here's what happens when a hair salon's website has no WhatsApp booking...' · <strong>Post 2 — The Build:</strong> Screen recording of the finished site · <strong>Post 3 — The Insight:</strong> 'Why every CTA on this site goes to WhatsApp instead of a contact form' · <strong>Post 4 — The Result:</strong> Before/after of original site vs redesign · <strong>Post 5 — The Offer:</strong> 'If your business looks like the before, message me'</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DM template -->
+    <div style="margin-top: 56px;">
+      <div class="section-label-row reveal" style="margin-bottom: 28px;"><span class="num">↳</span> Outreach DM Template</div>
+      <div class="outreach-card reveal">
+        <div class="outreach-label">Copy-paste template — adapt the specifics to match the business you're messaging</div>
+        <blockquote>
+          "Hi [Name], I noticed your business on Facebook. I recently built a site for a hair boutique in Gaborone that lets customers book directly via WhatsApp without the back-and-forth. The owner said customers now arrive already knowing the prices. I think it could work well for you too — would it be useful if I showed you what it looks like?"
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA BANNER ────────────────────────────────────────────── -->
+  <section class="cta-banner">
+    <h2 class="cta-title reveal">
+      Does your business<br>deserve a site like <em>this?</em>
+    </h2>
+    <p class="cta-sub reveal">
+      If you run a salon, boutique, or beauty business in Gaborone and customers are still asking 'what's your price?' — this is what a fix looks like.
+    </p>
+    <a
+      href="https://wa.me/YOURNUMBER?text=Hi%20TWS%20Digital%2C%20I%20saw%20the%20Botho%20Hair%20Boutique%20case%20study%20and%20I%27d%20like%20to%20talk%20about%20my%20business."
+      class="btn-primary reveal"
+      target="_blank" rel="noopener"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.833L.057 23.032a.75.75 0 0 0 .911.912l5.199-1.453A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.867 0-3.62-.489-5.14-1.343l-.369-.213-3.084.861.861-3.083-.213-.369A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Talk to TWS Digital on WhatsApp
+    </a>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">TWS<span>DIGITAL</span></div>
+    <p>Turning social media attention into real customers. Gaborone, Botswana.</p>
+    <p>© 2026 TWS Digital</p>
+  </footer>
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────────────── -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 55);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

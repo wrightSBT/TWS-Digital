@@ -1,248 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TWS Digital | WhatsApp Funnels</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxx21dfez5XjgRZc3xC2MQ0xp15Klc3F+2/Fi7cPc9NKGJ+YF6B+0zY1xUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        body { font-family: 'Sora', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .glow-button { transition: 0.3s; box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); }
-        .glow-button:hover { box-shadow: 0 0 25px rgba(34, 197, 94, 0.6); transform: translateY(-2px); }
-        .text-gradient { background: linear-gradient(to right, #fff, #9ca3af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .step-number { background: linear-gradient(45deg, #22c55e, #16a34a); }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TWS Digital — WhatsApp Funnels for Botswana Businesses</title>
+  <meta name="description" content="We build WhatsApp-optimised funnels for Botswana businesses that convert social media attention into bookings and serious inquiries — in 7 days." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="antialiased">
-        <!-- WhatsApp Float Button -->
-        <a href="https://wa.me/your-number" class="whatsapp-float" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+<body>
 
-    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 bg-black/50">
-        <div class="flex justify-between items-center p-4 max-w-7xl mx-auto">
-            <div class="text-xl font-bold tracking-tighter">TWS<span class="text-green-500">DIGITAL</span></div>
-            <div class="hidden md:flex gap-8 text-sm text-gray-400">
-                <a href="#process" class="hover:text-white">Process</a>
-                <a href="#packages" class="hover:text-white">Packages</a>
-                <a href="porfolio.html" class="hover:text-white">Portfolio</a>
-            </div>    
-            <a href="https://wa.me/YOURNUMBER" class="bg-white text-black px-5 py-2 rounded-full text-sm font-semibold hover:bg-green-500 transition">Free Funnel Check</a>
-        </div>
+  <!-- ─── WHATSAPP FLOAT ────────────────────────────────────────── -->
+  <a href="https://wa.me/+26778416584" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.833L.057 23.032a.75.75 0 0 0 .911.912l5.199-1.453A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.867 0-3.62-.489-5.14-1.343l-.369-.213-3.084.861.861-3.083-.213-.369A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+  <!-- ─── NAV ───────────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">TWS<span>DIGITAL</span></div>
+
+    <!-- Desktop links (hidden on mobile via CSS) -->
+    <div class="nav-links">
+      <a href="#problem">The Problem</a>
+      <a href="#process">Process</a>
+      <a href="#packages">Packages</a>
+      <a href="portfolio.html">Work</a>
+    </div>
+
+    <!-- Desktop CTA (hidden on mobile via CSS) -->
+    <a href="https://wa.me/+26778416584" class="nav-cta">Free Funnel Check</a>
+
+    <!-- Hamburger button (shown on mobile via CSS) -->
+    <button class="nav-hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </nav>
+
+  <!-- ─── MOBILE MENU DRAWER ────────────────────────────────────── -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu-links">
+      <a href="#problem" class="mobile-link">
+        The Problem
+        <svg class="mobile-link-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a href="#process" class="mobile-link">
+        Process
+        <svg class="mobile-link-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a href="#packages" class="mobile-link">
+        Packages
+        <svg class="mobile-link-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a href="portfolio.html" class="mobile-link">
+        Work
+        <svg class="mobile-link-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
     </nav>
+    <div class="mobile-menu-footer">
+      <a href="https://wa.me/+26778416584" class="mobile-cta">Free Funnel Check →</a>
+      <p class="mobile-tagline">TWS Digital · Gaborone, Botswana</p>
+    </div>
+  </div>
 
-    <section class="max-w-5xl mx-auto text-center pt-40 pb-32 px-6">
-        <span class="text-green-500 bg-green-500/10 px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">7-Day Launch Guarantee</span>
-        <h1 class="text-5xl md:text-7xl font-bold mt-8 leading-tight text-gradient">
-            Turn Facebook Attention Into Real Customers.
-        </h1>
-        <p class="text-gray-400 mt-6 text-lg md:text-xl max-w-2xl mx-auto">
-            Stop wasting time on "Hi, price?" messages. We build WhatsApp-optimized funnels for Botswana businesses that convert DMs into Deals.
-        </p>
-        <div class="mt-10 flex flex-col md:flex-row gap-4 justify-center">
-            <a href="#packages" class="glow-button bg-green-500 text-black px-8 py-4 rounded-xl font-bold text-lg text-center">Start My WhatsApp Funnel</a>
-            <a href="porfolio.html" class="glass px-8 py-4 rounded-xl font-bold text-lg text-center"> View Portfolio</a>
+  <!-- ─── HERO ──────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-arc"></div>
+    <div class="hero-cross hero-cross-tl"></div>
+    <div class="hero-cross hero-cross-br"></div>
+
+    <div class="hero-badge reveal">
+      <span class="hero-badge-label">New</span>
+      <span class="hero-badge-text">
+        7-Day Launch Guarantee
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </div>
+
+    <h1 class="hero-headline reveal">
+      Turn DMs Into<br><em class="hl">Real Customers.</em>
+    </h1>
+
+    <p class="hero-sub reveal">
+      We build WhatsApp-optimised funnels for Botswana businesses that convert Facebook &amp; Instagram attention into bookings, orders, and serious inquiries — in 7 days.
+    </p>
+
+    <div class="hero-ctas reveal">
+      <a href="https://wa.link/gppwie" class="btn-primary">
+        Get Started
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="portfolio.html" class="btn-ghost">
+        <span class="btn-play-icon">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+        View Our Work
+      </a>
+    </div>
+
+    <div class="hero-cards reveal">
+      <div class="hero-card hcard-image">
+        <img src="hair_studio.jpg" alt="Client work preview" />
+        <div class="hcard-image-label"><span></span>Client Results</div>
+      </div>
+      <div class="hero-card hcard-stat">
+        <div class="hcard-stat-val">200+</div>
+        <div class="hcard-stat-label">Businesses in Botswana losing customers to bad funnels</div>
+      </div>
+      <div class="hero-card hcard-trust">
+        <div class="hcard-trust-title">Trusted &amp; Transparent Pricing</div>
+        <div class="hcard-trust-bar"></div>
+      </div>
+      <div class="hero-card hcard-big">
+        <div class="hcard-big-val">7</div>
+        <div class="hcard-big-label">Days from brief to live funnel — guaranteed</div>
+        <div class="hcard-big-tags">
+          <span class="hcard-big-tag">Restaurants</span>
+          <span class="hcard-big-tag">Salons</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="max-w-4xl mx-auto px-6 py-20 text-center border-t border-white/5">
-        <h2 class="text-2xl md:text-3xl font-semibold mb-6 italic text-gray-300">"I’ve seen so many businesses in Botswana lose customers not because they’re bad — but because their info is hard to find."</h2>
-        <p class="text-gray-400 text-lg leading-relaxed">
-            I build simple systems that turn social media attention into WhatsApp inquiries and bookings — <span class="text-white font-bold">fast, clear, and mobile-first.</span>
-        </p>
-        <div class="mt-8 flex justify-center gap-4 italic text-sm text-green-500">
-            <span>✨ "After this, people stopped asking ‘price?’ — they just booked."</span>
+  <!-- ─── MARQUEE ───────────────────────────────────────────────── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-dot"></span>WhatsApp Funnels</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>7-Day Launch Guarantee</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>No "Price?" Messages</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Mobile-First Design</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Restaurants · Salons · Clinics</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Facebook → Funnel → Bookings</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>WhatsApp Funnels</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>7-Day Launch Guarantee</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>No "Price?" Messages</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Mobile-First Design</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Restaurants · Salons · Clinics</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Facebook → Funnel → Bookings</div>
+    </div>
+  </div>
+
+  <!-- ─── 01: THE PROBLEM ───────────────────────────────────────── -->
+  <section id="problem" class="section">
+    <div class="section-label"><span class="num">01</span> The Problem</div>
+    <div class="problem-header">
+      <h2 class="problem-title reveal">"Hi,<br><em>price?</em>"<br>Then silence.</h2>
+      <p class="problem-desc reveal">Your business is active. Your Facebook page gets views. People message you. But after they ask for a price, they vanish — because they never had enough information to commit. That's a funnel problem, not a product problem.</p>
+    </div>
+    <div class="problem-cards">
+      <div class="problem-card reveal">
+        <div class="problem-card-num">01</div>
+        <h3>The Ghosting</h3>
+        <p>Customers ask for prices on Facebook and disappear because your info isn't structured. They lose interest before they reach WhatsApp.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-card-num">02</div>
+        <h3>The Time Trap</h3>
+        <p>You repeat the same service details 50 times a day. Every "What do you offer?" message is hours of your life you can't get back.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-card-num">03</div>
+        <h3>The Messy Look</h3>
+        <p>Customers scroll forever to find what you do. If they can't find it in 10 seconds, they'll trust your competitor who has a clear page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 02: WHAT WE BUILD ─────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label"><span class="num">02</span> What We Build</div>
+    <div class="solution-row">
+      <h2 class="solution-title reveal">A system that<br>answers before<br>they <em>even ask.</em></h2>
+      <div class="solution-items">
+        <div class="solution-item reveal">
+          <span class="solution-item-num">01</span>
+          <div class="solution-item-body">
+            <h4>Mobile-First Funnel Page</h4>
+            <p>Your services, pricing, and trust signals laid out clearly on one fast-loading mobile page — no scrolling through old posts required.</p>
+          </div>
         </div>
-    </section>
-
-    <section id="process" class="max-w-7xl mx-auto px-6 py-24 bg-white/5 rounded-[3rem]">
-        <h2 class="text-4xl font-bold text-center mb-16">The 3-Step Plan</h2>
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class="text-center">
-                <div class="step-number w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6 font-bold text-xl">1</div>
-                <h3 class="text-xl font-bold mb-4">We Map Your Funnel</h3>
-                <p class="text-gray-400">We identify exactly how people find you and where they drop off.</p>
-            </div>
-            <div class="text-center">
-                <div class="step-number w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6 font-bold text-xl">2</div>
-                <h3 class="text-xl font-bold mb-4">We Build Your Funnel</h3>
-                <p class="text-gray-400">A mobile-first page showing services, pricing, trust signals, and 1-click WhatsApp buttons.</p>
-            </div>
-            <div class="text-center">
-                <div class="step-number w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6 font-bold text-xl">3</div>
-                <h3 class="text-xl font-bold mb-4">You Get More Inquiries</h3>
-                <p class="text-gray-400">You receive more serious messages — people who are ready to pay, not just "Hi".</p>
-            </div>
+        <div class="solution-item reveal">
+          <span class="solution-item-num">02</span>
+          <div class="solution-item-body">
+            <h4>1-Click WhatsApp Integration</h4>
+            <p>Every CTA sends a pre-filled message to your WhatsApp. Customers arrive ready — with context. No more cold "Hi" openers.</p>
+          </div>
         </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-6 py-24 border-b border-white/5">
-        <div class="grid md:grid-cols-2 gap-10 items-center">
-            <h2 class="text-4xl font-bold">What you actually get is <span class="text-green-500 underline">Results</span>.</h2>
-            <div class="grid grid-cols-1 gap-4">
-                <div class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-circle-check"></i> More WhatsApp inquiries</div>
-                <div class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-circle-check"></i> Fewer "price?" messages</div>
-                <div class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-circle-check"></i> Faster bookings or orders</div>
-                <div class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-circle-check"></i> One clean link for all your bios</div>
-            </div>
+        <div class="solution-item reveal">
+          <span class="solution-item-num">03</span>
+          <div class="solution-item-body">
+            <h4>Trust Architecture</h4>
+            <p>Testimonials, before/afters, service details, and FAQs — positioned psychologically to move a visitor from curious to committed.</p>
+          </div>
         </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-6 py-20">
-        <h2 class="text-3xl font-bold text-center mb-12">The "Hi, Price?" Headache Ends Here</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="glass p-8 rounded-3xl">
-                <div class="text-3xl mb-4"><i class="fa-solid fa-ghost"></i></div>
-                <h3 class="text-xl font-bold mb-2">The Ghosting</h3>
-                <p class="text-gray-400">People ask for prices on Facebook and disappear because your info isn't structured.</p>
-            </div>
-            <div class="glass p-8 rounded-3xl border-green-500/30">
-                <div class="text-3xl mb-4"><i class="fa-solid fa-hourglass-half"></i></div>
-                <h3 class="text-xl font-bold mb-2">The Time Trap</h3>
-                <p class="text-gray-400">You repeat the same service details 50 times a day. It’s exhausting and scales poorly.</p>
-            </div>
-            <div class="glass p-8 rounded-3xl">
-                <div class="text-3xl mb-4"><i class="fa-solid fa-arrow-trend-down"></i></div>
-                <h3 class="text-xl font-bold mb-2">The Messy Look</h3>
-                <p class="text-gray-400">Customers scroll forever to find what you do. If they can't find it, they won't buy it.</p>
-            </div>
+        <div class="solution-item reveal">
+          <span class="solution-item-num">04</span>
+          <div class="solution-item-body">
+            <h4>One Link For Every Bio</h4>
+            <p>Your Facebook, Instagram, and TikTok all point to one place. One URL that handles everything your social pages can't.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="packages" class="max-w-7xl mx-auto px-6 py-24">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold">Simple Packages</h2>
-            <p class="text-gray-400 mt-4">Transparent pricing for serious growth.</p>
+  <!-- ─── 03: PROCESS ───────────────────────────────────────────── -->
+  <section id="process" class="section">
+    <div class="section-label"><span class="num">03</span> How It Works</div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-step-head">
+          <div class="process-step-num">01</div>
+          <span class="process-step-tag">Day 1</span>
         </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass p-10 rounded-3xl flex flex-col">
-                <h3 class="text-xl font-bold">Starter Funnel</h3>
-                <p class="text-gray-400 mt-2 text-sm italic">Best for solo-preneurs</p>
-                <div class="my-8">
-                    <span class="text-4xl font-bold">P2,999</span>
-                    <span class="text-gray-400 text-sm"> setup</span>
-                </div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-300 flex-grow">
-                    <li>✓ Services & Menu Page</li>
-                    <li>✓ Trust/Gallery Section</li>
-                    <li>✓ Click-to-WhatsApp Button</li>
-                    <li>✓ Google Maps Setup</li>
-                </ul>
-                <button class="w-full py-4 glass rounded-xl hover:bg-white hover:text-black transition">Choose Starter</button>
-            </div>
-
-            <div class="glass p-10 rounded-3xl border-green-500 flex flex-col relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-green-500 text-black text-[10px] font-bold px-4 py-1 rounded-bl-lg">MOST POPULAR</div>
-                <h3 class="text-xl font-bold">Booking Funnel</h3>
-                <p class="text-gray-400 mt-2 text-sm italic">Best for Salons & Clinics</p>
-                <div class="my-8">
-                    <span class="text-4xl font-bold">P699</span>
-                    <span class="text-gray-400 text-sm"> / month</span>
-                </div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-300 flex-grow">
-                    <li>✓ <strong>All Starter Features</strong></li>
-                    <li>✓ Booking Form / Calendar</li>
-                    <li>✓ Auto-WhatsApp Confirmation</li>
-                    <li>✓ FAQ Section</li>
-                </ul>
-                <button class="w-full py-4 bg-green-500 text-black font-bold rounded-xl glow-button">Choose Booking</button>
-            </div>
-
-            <div class="glass p-10 rounded-3xl flex flex-col">
-                <h3 class="text-xl font-bold">Menu & Order</h3>
-                <p class="text-gray-400 mt-2 text-sm italic">Best for Food & Retail</p>
-                <div class="my-8">
-                    <span class="text-4xl font-bold">P899</span>
-                    <span class="text-gray-400 text-sm"> / month</span>
-                </div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-300 flex-grow">
-                    <li>✓ <strong>All Booking Features</strong></li>
-                    <li>✓ Full Product Catalog</li>
-                    <li>✓ WhatsApp Order (Prefilled Cart)</li>
-                    <li>✓ Monthly Growth Reports</li>
-                </ul>
-                <button class="w-full py-4 glass rounded-xl hover:bg-white hover:text-black transition">Choose Pro</button>
-            </div>
+        <h3>We Map Your Funnel</h3>
+        <p>We start with a free funnel check. We look at how customers find you, where they drop off, and what information they need to say yes.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-head">
+          <div class="process-step-num">02</div>
+          <span class="process-step-tag">Days 2–6</span>
         </div>
-        <p class="text-center text-gray-500 mt-8 text-sm">⚠️ I only take 3 new businesses per month to keep quality high.</p>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-6 py-24">
-        <h2 class="text-3xl font-bold text-center mb-12">Success Stories</h2>
-        <div class="grid md:grid-cols-3 gap-8 text-center">
-            <div class="glass p-6 rounded-2xl">
-                <div class="bg-gray-800 h-48 rounded-xl mb-4 relative overflow-hidden">
-                    <img src="hair_studio.jpg" alt="The Glow Studio" class="w-full h-full object-cover object-center block">
-                </div>
-                <p class="font-bold">Made booking easier</p>
-                <p class="text-xs text-green-500">Increased WhatsApp clicks by 40%</p>
-            </div>
-            <div class="glass p-6 rounded-2xl">
-                <div class="bg-gray-800 h-48 rounded-xl mb-4 relative overflow-hidden">
-                    <img src="Kgosi_Kitchen.jpg" alt="Kgosi Kitchen" class="w-full h-full object-cover object-center block">
-                </div>
-                <p class="font-bold">Reduced scrolling</p>
-                <p class="text-xs text-green-500">Zero "Price?" comments this week</p>
-            </div>
-            <div class="glass p-6 rounded-2xl">
-                <div class="bg-gray-800 h-48 rounded-xl mb-4 relative overflow-hidden">
-                    <img src="bwc-website.jpg" alt="Bontlebotsile Wellness Consult site" class="w-full h-full object-cover object-center block">
-                </div>
-                <p class="font-bold">More serious messages</p>
-                <p class="text-xs text-green-500">Qualified leads only</p>
-            </div>
+        <h3>We Build Your Funnel</h3>
+        <p>A clean, mobile-first page with your services, pricing, gallery, testimonials, and a direct WhatsApp booking flow. Built fast, built right.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-head">
+          <div class="process-step-num">03</div>
+          <span class="process-step-tag">Day 7</span>
         </div>
-    </section>
+        <h3>You Get More Inquiries</h3>
+        <p>We hand over the live funnel — already connected to your WhatsApp. You start receiving messages from people who already know your price and want to book.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="max-w-5xl mx-auto px-6 py-24">
-        <div class="grid md:grid-cols-2 gap-12">
-            <div class="glass p-10 rounded-3xl border-green-500/20">
-                <h3 class="text-2xl font-bold mb-6 text-green-500">This is for you if:</h3>
-                <ul class="space-y-4 text-gray-300">
-                    <li>• People message and disappear</li>
-                    <li>• Your info is hard to find</li>
-                    <li>• You rely on Facebook & WhatsApp</li>
-                    <li>• You want more serious customers</li>
-                </ul>
-            </div>
-            <div class="glass p-10 rounded-3xl border-red-500/20">
-                <h3 class="text-2xl font-bold mb-6 text-red-500">This is NOT for you if:</h3>
-                <ul class="space-y-4 text-gray-300">
-                    <li>• You don’t care about growing</li>
-                    <li>• You never answer customers</li>
-                    <li>• You just want a "nice looking page"</li>
-                    <li>• You aren’t ready to invest</li>
-                </ul>
-            </div>
+  <!-- ─── 04: PACKAGES ──────────────────────────────────────────── -->
+  <section id="packages" class="section">
+    <div class="section-label"><span class="num">04</span> Packages</div>
+    <div class="packages-header">
+      <h2 class="packages-title reveal">Simple.<br>Transparent.</h2>
+      <p class="packages-note reveal">We only take <strong>3 new businesses per month</strong> to keep quality high. Secure your spot for the next 7-day launch cycle.</p>
+    </div>
+    <div class="packages-grid">
+      <div class="package-card reveal">
+        <div class="package-type">Starter</div>
+        <div class="package-name">Starter<br>Funnel</div>
+        <div>
+          <div class="package-price">P2,999</div>
+          <div class="package-price-note">One-time setup</div>
         </div>
-    </section>
-
-    <section class="max-w-5xl mx-auto px-6 py-32 text-center">
-        <div class="glass p-16 rounded-[3rem] border-green-500/30">
-            <h2 class="text-4xl font-bold mb-6">Ready to Turn DMs Into Deals?</h2>
-            <div class="flex flex-col md:flex-row justify-center gap-8 mb-10 text-sm text-gray-400 font-semibold uppercase tracking-widest">
-                <span>⚡ 7-Day Launch</span>
-                <span>🔒 No Pay Until Live</span>
-                <span>📉 Low Risk Monthly</span>
-            </div>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="https://wa.me/YOURNUMBER" class="glow-button bg-green-500 text-black px-10 py-5 rounded-2xl font-bold text-xl">
-                    Start My WhatsApp Funnel
-                </a>
-                <a href="https://wa.me/YOURNUMBER" class="glass px-10 py-5 rounded-2xl font-bold text-xl">
-                    Book Free Funnel Check
-                </a>
-            </div>
+        <div class="package-features">
+          <div class="package-feature"><span class="package-check">✓</span> Services &amp; pricing page</div>
+          <div class="package-feature"><span class="package-check">✓</span> Gallery / trust section</div>
+          <div class="package-feature"><span class="package-check">✓</span> Click-to-WhatsApp button</div>
+          <div class="package-feature"><span class="package-check">✓</span> Google Maps integration</div>
+          <div class="package-feature"><span class="package-check">✓</span> Mobile-optimised</div>
         </div>
-    </section>
+        <a href="https://wa.me/+26778416584" class="btn-pkg">Get Started</a>
+      </div>
+      <div class="package-card featured reveal">
+        <div class="package-badge">Most Popular</div>
+        <div class="package-type">For Salons &amp; Clinics</div>
+        <div class="package-name">Booking<br>Funnel</div>
+        <div>
+          <div class="package-price">P699</div>
+          <div class="package-price-note">Per month</div>
+        </div>
+        <div class="package-features">
+          <div class="package-feature"><span class="package-check">✓</span> Everything in Starter</div>
+          <div class="package-feature"><span class="package-check">✓</span> Booking form + calendar</div>
+          <div class="package-feature"><span class="package-check">✓</span> Auto WhatsApp confirmation</div>
+          <div class="package-feature"><span class="package-check">✓</span> FAQ section</div>
+          <div class="package-feature"><span class="package-check">✓</span> Monthly updates</div>
+        </div>
+        <a href="https://wa.me/+26778416584" class="btn-pkg">Get Started</a>
+      </div>
+      <div class="package-card reveal">
+        <div class="package-type">For Food &amp; Retail</div>
+        <div class="package-name">Menu &amp;<br>Order</div>
+        <div>
+          <div class="package-price">P899</div>
+          <div class="package-price-note">Per month</div>
+        </div>
+        <div class="package-features">
+          <div class="package-feature"><span class="package-check">✓</span> Everything in Booking</div>
+          <div class="package-feature"><span class="package-check">✓</span> Full digital menu / catalog</div>
+          <div class="package-feature"><span class="package-check">✓</span> WhatsApp pre-filled cart</div>
+          <div class="package-feature"><span class="package-check">✓</span> Monthly growth reports</div>
+          <div class="package-feature"><span class="package-check">✓</span> Priority support</div>
+        </div>
+        <a href="https://wa.me/+26778416584" class="btn-pkg">Get Started</a>
+      </div>
+    </div>
+  </section>
 
-    <footer class="p-10 text-center text-gray-600 text-xs border-t border-white/5">
-        &copy; 2026 TWS Digital Botswana. Turning attention into income.
-    </footer>
+  <!-- ─── 05: SELECTED WORK ─────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label"><span class="num">05</span> Selected Work</div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb">
+          <img src="hair_studio.jpg" alt="Botho Hair Boutique" />
+          <div class="portfolio-thumb-overlay"></div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-niche">Health &amp; Beauty</div>
+          <div class="portfolio-name">Botho Hair Boutique</div>
+          <div class="portfolio-result">Before: customers scrolling 20 photos for a price list. <strong>After: live booking calendar + WhatsApp confirmation. +40% bookings.</strong></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb">
+          <img src="Kgosi_Kitchen.jpg" alt="Kgosi Kitchen" />
+          <div class="portfolio-thumb-overlay"></div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-niche">Food &amp; Beverage</div>
+          <div class="portfolio-name">Kgosi Kitchen</div>
+          <div class="portfolio-result">Staff spent 3 hours/day answering "what's on the menu?" <strong>After: digital menu with add-to-cart that sends structured orders to WhatsApp. Zero "Price?" DMs.</strong></div>
+        </div>
+      </div>
+      <div class="portfolio-cta-row reveal">
+        <h3>Your Business Next?</h3>
+        <p>3 spots available per month. Next cycle starts soon.</p>
+          <a href="https://wa.me/+26778416584" class="btn-primary">Claim a Spot</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 06: IS THIS FOR YOU ───────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label"><span class="num">06</span> Is This For You?</div>
+    <div class="fit-grid">
+      <div class="fit-col reveal">
+        <div class="fit-col-label"><span class="dot dot-green"></span> This is for you if</div>
+        <div class="fit-items">
+          <div class="fit-item"><span class="fit-item-icon">→</span> People message you and then vanish</div>
+          <div class="fit-item"><span class="fit-item-icon">→</span> Your info is buried in old Facebook posts</div>
+          <div class="fit-item"><span class="fit-item-icon">→</span> You rely on Facebook &amp; WhatsApp to get customers</div>
+          <div class="fit-item"><span class="fit-item-icon">→</span> You want more serious, ready-to-pay customers</div>
+          <div class="fit-item"><span class="fit-item-icon">→</span> You're tired of repeating yourself every day</div>
+        </div>
+      </div>
+      <div class="fit-col reveal">
+        <div class="fit-col-label"><span class="dot dot-red"></span> Not for you if</div>
+        <div class="fit-items">
+          <div class="fit-item"><span class="fit-item-icon">→</span> You're not interested in growing your business</div>
+          <div class="fit-item"><span class="fit-item-icon">→</span> You rarely respond to customer messages</div>
+          <div class="fit-item"><span class="fit-item-icon">→</span> You just want something pretty without a purpose</div>
+          <div class="fit-item"><span class="fit-item-icon">→</span> You're not ready to invest in your own growth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA BANNER ────────────────────────────────────────────── -->
+  <section class="cta-banner">
+    <h2 class="cta-banner-title reveal">Ready to Turn<br><em>DMs Into Deals?</em></h2>
+    <div class="cta-badges reveal">
+      <span class="cta-badge"><i class="fa-solid fa-bolt-lightning"></i> 7-Day Launch</span>
+      <span class="cta-badge"><i class="fa-solid fa-lock"></i> No Pay Until Live</span>
+      <span class="cta-badge"><i class="fa-solid fa-map-pin"></i> Gaborone-Based</span>
+      <span class="cta-badge"><i class="fa-solid fa-users"></i> 3 Spots/Month Only</span>
+    </div>
+    <div class="cta-banner-btns reveal">
+      <a href="https://wa.me/+26778416584" class="btn-primary">Start My WhatsApp Funnel</a>
+      <a href="https://wa.me/+26778416584" class="btn-ghost">Book Free Funnel Check</a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">TWS<span>DIGITAL</span></div>
+    <p>Turning social media attention into real customers. Gaborone, Botswana.</p>
+    <p>© 2026 TWS Digital</p>
+  </footer>
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────────────── -->
+  <script>
+    /* ── Scroll reveal ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ── Mobile menu ── */
+    const menuBtn    = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function openMenu() {
+      menuBtn.classList.add('open');
+      mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+      menuBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    /* Close when any drawer link is tapped */
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    /* Close on Escape key */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
 
 </body>
 </html>
