@@ -1,0 +1,19 @@
+@import "./valden-style.css";
+@import "tailwindcss";
+@source "./index.html";
+
+@theme {
+  --font-display: "Inter Tight", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --color-tws-green: #8bc53f;
+  --color-tws-green-dark: #4f7a1a;
+  --color-tws-ink: #000000;
+}
+
+
+
+
+
+
+
+
